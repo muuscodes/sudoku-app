@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Evan Austin" />
+    <meta name="description" content="A locally built sudoku app" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Sudoku</title>
+  </head>
+  <body>
+    <header class="center" aria-label="">
+      <h1 aria-label="Sudoku header">Sudoku</h1>
+      <!-- <button
+        type="button"
+        aria-controls="menu"
+        aria-haspopup="true"
+        class="toggle"
+        aria-label="Appearance: Dark theme"
+        data-appearance="dark"
+        data-title="Appearance: Dark theme"
+      ></button>
+      <ul class="menu" role="dialog" id="menu" hidden="">
+        <li>
+          <input type="radio" name="appearance" id="light" value="light" />
+          <label for="light"> Light theme </label>
+        </li>
+        <li>
+          <input
+            type="radio"
+            name="appearance"
+            id="dark"
+            value="dark"
+            checked=""
+          />
+          <label for="dark"> Dark theme </label>
+        </li>
+        <li>
+          <input type="radio" name="appearance" id="device" value="device" />
+          <label for="device"> Device default </label>
+        </li>
+      </ul> -->
+      <h4 aria-label="Difficulty header">Difficulty:</h4>
+      <div class="header-btn" aria-label="Difficulty buttons">
+        <button id="easy-btn" class="easy-btn center" aria-label="Easy button">
+          EASY
+        </button>
+        <button
+          id="medium-btn"
+          class="medium-btn center"
+          aria-label="Medium button"
+        >
+          MEDIUM
+        </button>
+        <button id="hard-btn" class="hard-btn center" aria-label="Hard button">
+          HARD
+        </button>
+      </div>
+      <p id="notification"></p>
+    </header>
+    <main>
+      <div class="container" aria-label="Grid board container">
+        <div data-row="1" data-col="1">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="1" data-col="2" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="1" data-col="3">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="1" data-col="4" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="1" data-col="5">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="1" data-col="6" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="1" data-col="7">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="1" data-col="8" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="1" data-col="9">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+
+        <div data-row="2" data-col="1" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="2" data-col="2">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="2" data-col="3" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="2" data-col="4">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="2" data-col="5" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="2" data-col="6">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="2" data-col="7" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="2" data-col="8">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="2" data-col="9" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+
+        <div data-row="3" data-col="1">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="3" data-col="2" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="3" data-col="3">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="3" data-col="4" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="3" data-col="5">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="3" data-col="6" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="3" data-col="7">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="3" data-col="8" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="3" data-col="9">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+
+        <div data-row="4" data-col="1" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="4" data-col="2">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="4" data-col="3" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="4" data-col="4">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="4" data-col="5" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="4" data-col="6">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="4" data-col="7" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="4" data-col="8">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="4" data-col="9" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+
+        <div data-row="5" data-col="1">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="5" data-col="2" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="5" data-col="3">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="5" data-col="4" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="5" data-col="5">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="5" data-col="6" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="5" data-col="7">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="5" data-col="8" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="5" data-col="9">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+
+        <div data-row="6" data-col="1" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="6" data-col="2">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="6" data-col="3" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="6" data-col="4">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="6" data-col="5" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="6" data-col="6">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="6" data-col="7" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="6" data-col="8">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="6" data-col="9" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+
+        <div data-row="7" data-col="1">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="7" data-col="2" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="7" data-col="3">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="7" data-col="4" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="7" data-col="5">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="7" data-col="6" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="7" data-col="7">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="7" data-col="8" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="7" data-col="9">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+
+        <div data-row="8" data-col="1" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="8" data-col="2">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="8" data-col="3" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="8" data-col="4">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="8" data-col="5" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="8" data-col="6">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="8" data-col="7" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="8" data-col="8">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="8" data-col="9" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+
+        <div data-row="9" data-col="1">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="9" data-col="2" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="9" data-col="3">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="9" data-col="4" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="9" data-col="5">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="9" data-col="6" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="9" data-col="7">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+        <div data-row="9" data-col="8" id="evenDiv">
+          <input
+            type="text"
+            pattern="[1-9]"
+            maxlength="1"
+            name="input"
+            id="evenInput"
+          />
+        </div>
+        <div data-row="9" data-col="9">
+          <input type="text" pattern="[1-9]" maxlength="1" name="input" />
+        </div>
+      </div>
+      <div class="bottom-btn" aria-label="Check and reset buttons">
+        <button
+          id="check-btn"
+          class="check-btn center"
+          aria-label="Check button"
+        >
+          CHECK
+        </button>
+        <button
+          id="reset-btn"
+          class="reset-btn center"
+          aria-label="Reset button"
+        >
+          RESET
+        </button>
+      </div>
+    </main>
+    <footer class="center">
+      &copy; &nbsp;Evan Austin, all rights reserved
+    </footer>
+  </body>
+</html>
