@@ -16,6 +16,7 @@
   margin: $standardMargin;
   border: $borders;
   border-radius: 5px;
+  box-shadow: $boxShadowBtn;
   background-color: $difficultyButtonBackgroundColor;
   font-weight: bold;
 }
@@ -32,11 +33,12 @@
   margin: $standardMargin;
   font-size: 1rem;
   transition: opacity 0.5s;
+  font-weight: bolder;
 }
 
 .bottom-btn {
   display: flex;
-  width: 60%;
+  width: 40%;
   margin: 30px auto;
   flex-flow: row nowrap;
   justify-content: space-evenly;
@@ -49,6 +51,7 @@
   margin: $standardMargin;
   border: $borders;
   border-radius: 5px;
+  box-shadow: $boxShadowBtn;
   background-color: $bottomButtonBackgroundColor;
   font-weight: bold;
 }

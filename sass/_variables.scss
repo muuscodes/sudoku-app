@@ -1,60 +1,45 @@
-:root {
-  /* FONTS */
-  $fontFamily: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  $fontFamilyHeadings: $fontFamily;
-  $fontSize: clamp(1rem, 2.2vh, 1.5rem);
+/* FONTS */
+$fontFamily: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+$fontFamilyHeadings: $fontFamily;
+$fontSize: clamp(1rem, 2.2vh, 1.5rem);
 
-  /* COLORS */
-  $bodyBackgroundColor: rgba(217, 159, 66, 0.466);
-  $borderColor: #000;
-  $headerColor: #333;
-  $difficultyButtonBackgroundColor: #fff;
-  $difficultyButtonColor: #000;
-  $difficultyButtonHover: rgba(186, 130, 27, 0.551);
-  $darkBoardColor: rgb(207, 214, 220);
-  $lightBoardColor: aliceblue;
-  $inputBackgroundColor: $lightBoardColor;
-  $inputDarkColor: rgb(207, 214, 220);
-  $bottomButtonBackgroundColor: burlywood;
-  $bottomButtonHover: rgba(175, 102, 7, 0.675);
-  $footerBackgroundColor: $headerColor;
-  $footerColor: $headerColor;
+/* COLORS */
+$bodyBackgroundColor: rgba(33, 155, 182, 0.466);
+$borderColor: #000;
+$headerColor: #333;
+$difficultyButtonBackgroundColor: #fff;
+$difficultyButtonColor: #000;
+$difficultyButtonHover: rgba(186, 130, 27, 0.551);
+$darkBoardColor: rgb(207, 214, 220);
+$lightBoardColor: aliceblue;
+$inputBackgroundColor: $lightBoardColor;
+$inputDarkColor: rgb(207, 214, 220);
+$bottomButtonBackgroundColor: burlywood;
+$bottomButtonHover: rgba(175, 102, 7, 0.675);
+$footerBackgroundColor: $headerColor;
+$footerColor: $headerColor;
 
-  /* BORDERS */
-  $borders: 2px solid $borderColor;
-  $borderRadius: 15px;
-  $borderBoxes: 2px solid $borderColor;
+/* BORDERS */
+$borders: 2px solid $borderColor;
+$borderRadius: 15px;
+$borderBoxes: 2px solid $borderColor;
+$buttonFocus: 4px solid blue;
 
-  /* STANDARD PADDING */
-  $paddingTopBottom: 0.75rem;
-  $paddingSide: 1rem;
+/* STANDARD PADDING */
+$paddingTopBottom: 0.75rem;
+$paddingSide: 1rem;
 
-  /* STANDARD MARGIN */
-  $standardMargin: auto;
+/* STANDARD MARGIN */
+$standardMargin: auto;
 
-  /* STANDARD HEIGHT */
-  $standardHeight: auto;
+/* STANDARD HEIGHT */
+$standardHeight: auto;
 
-  /* STANDARD WIDTH */
-  $standardWidth: auto;
-}
+/* STANDARD WIDTH */
+$standardWidth: auto;
+$widthBoardTile: calc(30vw / 9);
 
-/* @media (prefers-color-scheme: dark) {
-  :root { */
-/* DARK MODE COLORS */
-/* --BODY-BGCOLOR: rgba(202, 190, 137, 0.738);
-    --BORDER-COLOR: #000;
-    --HEADER-COLOR: #333;
-    --DIFFICULTY-BTN-BGCOLOR: #fff;
-    --DIFFICULTY-BTN-HOVER: rgba(186, 130, 27, 0.551);
-    --DARK-BOARD-COLOR: rgb(207, 214, 220);
-    --LIGHT-BOARD-COLOR: aliceblue;
-    --INPUT-BGCOLOR: var(--LIGHT-BOARD-COLOR);
-    --INPUT-DARK-BGCOLOR: rgb(207, 214, 220);
-    --BOTTOM-BTN-BGCOLOR: burlywood;
-    --BOTTOM-BTN-HOVER: rgba(175, 102, 7, 0.675);
-    --FOOTER-BGCOLOR: var(--HEADER-COLOR);
-    --FOOTER-COLOR: var(--LIGHT-BOARD-COLOR); */
-/* }
-} */
+/* Box Shadow */
+$boxShadowGrid: 1px 1px 5px 1px black;
+$boxShadowBtn: 1px 1px 1px 0 black;

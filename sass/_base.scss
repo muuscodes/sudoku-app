@@ -37,35 +37,48 @@ header {
 }
 
 h1 {
-  text-align: center;
   margin: $standardMargin;
   padding: $paddingTopBottom $paddingSide;
   font-size: 4rem;
   color: $headerColor;
 }
 
-/* nav button {
-  display: block;
-  float: right;
-  padding: 5px;
-} */
-
 h4 {
-  text-align: center;
   color: $headerColor;
 }
 
 main {
-  justify-content: center;
   width: 100%;
 }
 
 footer {
+  width: 100%;
   color: $footerColor;
-  position: sticky;
-  bottom: 0;
-  height: $standardHeight;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  margin-top: $standardMargin;
+  margin-top: 20px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    max-width: calc(50px * 9 + 4px);
+  }
+
+  .container div {
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: calc(33px * 9 + 4px);
+  }
+
+  .container div {
+    min-width: 33px;
+    min-height: 33px;
+    font-size: 1rem;
+  }
 }
