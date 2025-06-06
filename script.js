@@ -2,6 +2,7 @@
 
 let difficulty = null;
 let currentBoard = [null];
+let solutionArray = [null];
 let invalidInput = 0;
 let timeoutMessage;
 let timeoutAutoCheck;
@@ -82,7 +83,7 @@ const notificationEl = document.getElementById("notification");
 const checkBtn = document.getElementById("check-btn");
 const resetBtn = document.getElementById("reset-btn");
 const inputContainer = document.querySelector(".container");
-const difficultyBtnColor = "rgba(186, 130, 27)";
+const difficultyBtnColor = "rgba(186, 130, 70)";
 
 /* || EVENT LISTENERS */
 
@@ -92,7 +93,9 @@ easyBtn.addEventListener("click", function () {
   easyBtn.style.background = difficultyBtnColor;
   mediumBtn.style.background = "";
   hardBtn.style.background = "";
-  initializeGameBoard(easyArray);
+  let boardArray = generateSudokuArray(difficulty)[0];
+  let solutionArray = generateSudokuArray(difficulty)[1];
+  initializeGameBoard(boardArray);
 });
 
 mediumBtn.addEventListener("click", function () {
@@ -166,6 +169,38 @@ function startGame() {
   initializeGameBoard(easyArray);
 }
 
+async function generateSudokuArray(difficulty) {
+  try {
+    const response = await fetch("https://youdosudoku.com/api/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        difficulty: difficulty,
+        solution: true,
+        array: true,
+      }),
+    });
+    if (response.status == 200) {
+      console.log(response);
+
+      let arr = await response.json();
+      return formatArray(arr);
+    } else {
+      throw Error(err);
+    }
+  } catch (err) {
+    notification = `Board not loading, please refresh the 
+    page and try again`;
+    showMessage(notification, false);
+  }
+}
+
+const formatArray = (array) => {
+  const arr = array.puzzle;
+  const sol = array.solution;
+  return [arr, sol];
+};
+
 function initializeGameBoard(array) {
   currentBoard = array.map((row) => row.slice());
   boxes.forEach((box) => {
@@ -176,9 +211,11 @@ function initializeGameBoard(array) {
     if (array[r][c] !== null) {
       inputEl.value = array[r][c];
       inputEl.disabled = true;
+      inputEl.style.fontWeight = "100";
     } else {
       inputEl.value = "";
       inputEl.disabled = false;
+      inputEl.style.fontWeight = "bolder";
     }
   });
 }
@@ -238,6 +275,7 @@ function resetBoard(difficulty, array) {
 function showMessage(text, win) {
   notificationEl.textContent = text;
   notificationEl.style.opacity = "1";
+  notificationEl.style.padding = "15px 0";
   clearTimeout(timeoutMessage);
 
   if (win) {
@@ -247,6 +285,7 @@ function showMessage(text, win) {
       document.documentElement.style.backgroundColor = "";
       setTimeout(() => {
         notificationEl.textContent = "";
+        notificationEl.style.padding = "";
       }, 500);
     }, 5000);
   } else {
@@ -254,6 +293,7 @@ function showMessage(text, win) {
       notificationEl.style.opacity = "0";
       setTimeout(() => {
         notificationEl.textContent = "";
+        notificationEl.style.padding = "";
       }, 500);
     }, 3000);
   }
@@ -268,6 +308,17 @@ function arrayHasNull(array) {
     }
   }
   return false;
+}
+
+function convertZeroToNull(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      if (array[i][j] === 0) {
+        array[i][j] = null;
+      }
+    }
+  }
+  currentBoard = array;
 }
 
 function autoCheck(row, col, value) {

@@ -1,0 +1,109 @@
+.container {
+  max-width: 40vw;
+  min-height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  border: $borders;
+  border-radius: 5px;
+  margin: $standardMargin;
+
+  div div:nth-child(even) {
+    background-color: $darkBoardColor;
+  }
+
+  div div {
+    display: flex;
+    background-color: $lightBoardColor;
+    border: 1px solid black;
+    border-radius: 3px;
+    height: $standardHeight;
+    width: $standardWidth;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    justify-content: center;
+    transition: border 0.5s;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding-left: 3px;
+    font-weight: 800;
+    background-color: $inputBackgroundColor;
+    width: 20px;
+    margin: $standardMargin;
+    transition: font-size 0.5s;
+  }
+
+  #evenInput {
+    background-color: $inputDarkColor;
+  }
+
+  div[data-row="1"] {
+    min-height: 30px;
+    min-width: 20px;
+  }
+
+  div[data-row="2"] {
+    min-height: 30px;
+    min-width: 20px;
+  }
+
+  div[data-row="3"] {
+    min-height: 30px;
+    min-width: 20px;
+    border-bottom: $borderBoxes;
+  }
+
+  div[data-row="4"] {
+    min-height: 30px;
+    min-width: 20px;
+    border-top: $borderBoxes;
+  }
+
+  div[data-row="5"] {
+    min-height: 30px;
+    min-width: 20px;
+  }
+
+  div[data-row="6"] {
+    min-height: 30px;
+    min-width: 20px;
+    border-bottom: $borderBoxes;
+  }
+
+  div[data-row="7"] {
+    min-height: 30px;
+    min-width: 20px;
+    border-top: $borderBoxes;
+  }
+
+  div[data-row="8"] {
+    min-height: 30px;
+    min-width: 20px;
+  }
+
+  div[data-row="9"] {
+    min-height: 30px;
+    min-width: 20px;
+  }
+
+  div[data-col="3"] {
+    border-right: $borderBoxes;
+  }
+
+  div[data-col="4"] {
+    border-left: $borderBoxes;
+  }
+
+  div[data-col="6"] {
+    border-right: $borderBoxes;
+  }
+
+  div[data-col="7"] {
+    border-left: $borderBoxes;
+  }
+}

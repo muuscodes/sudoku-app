@@ -1,0 +1,59 @@
+.header-btn {
+  display: flex;
+  margin: 15px auto;
+  width: 31%;
+  justify-content: center;
+  align-content: space-evenly;
+}
+
+.easy-btn,
+.medium-btn,
+.hard-btn {
+  font-size: 1rem;
+  padding: 0.2rem;
+  display: inline-block;
+  color: $difficultyButtonColor;
+  margin: $standardMargin;
+  border: $borders;
+  border-radius: 5px;
+  background-color: $difficultyButtonBackgroundColor;
+  font-weight: bold;
+}
+
+.easy-btn:hover,
+.medium-btn:hover,
+.hard-btn:hover {
+  background-color: $difficultyButtonHover;
+}
+
+#notification {
+  display: block;
+  width: fit-content;
+  margin: $standardMargin;
+  font-size: 1rem;
+  transition: opacity 0.5s;
+}
+
+.bottom-btn {
+  display: flex;
+  width: 60%;
+  margin: 30px auto;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+.check-btn,
+.reset-btn {
+  padding: 0.5rem;
+  display: inline-block;
+  margin: $standardMargin;
+  border: $borders;
+  border-radius: 5px;
+  background-color: $bottomButtonBackgroundColor;
+  font-weight: bold;
+}
+
+.check-btn:hover,
+.reset-btn:hover {
+  background-color: $bottomButtonHover;
+}

@@ -10,56 +10,17 @@
     <title>Sudoku</title>
   </head>
   <body>
-    <header class="center" aria-label="">
-      <h1 aria-label="Sudoku header">Sudoku</h1>
-      <!-- <button
-        type="button"
-        aria-controls="menu"
-        aria-haspopup="true"
-        class="toggle"
-        aria-label="Appearance: Dark theme"
-        data-appearance="dark"
-        data-title="Appearance: Dark theme"
-      ></button>
-      <ul class="menu" role="dialog" id="menu" hidden="">
-        <li>
-          <input type="radio" name="appearance" id="light" value="light" />
-          <label for="light"> Light theme </label>
-        </li>
-        <li>
-          <input
-            type="radio"
-            name="appearance"
-            id="dark"
-            value="dark"
-            checked=""
-          />
-          <label for="dark"> Dark theme </label>
-        </li>
-        <li>
-          <input type="radio" name="appearance" id="device" value="device" />
-          <label for="device"> Device default </label>
-        </li>
-      </ul> -->
-      <h4 aria-label="Difficulty header">Difficulty:</h4>
-      <div class="header-btn" aria-label="Difficulty buttons">
-        <button id="easy-btn" class="easy-btn center" aria-label="Easy button">
-          EASY
-        </button>
-        <button
-          id="medium-btn"
-          class="medium-btn center"
-          aria-label="Medium button"
-        >
-          MEDIUM
-        </button>
-        <button id="hard-btn" class="hard-btn center" aria-label="Hard button">
-          HARD
-        </button>
-      </div>
-      <p id="notification"></p>
+    <header class="center">
+      <h1 class="center">Sudoku</h1>
+      <h4 class="center">Difficulty:</h4>
     </header>
     <main>
+      <div class="header-btn" aria-label="Difficulty buttons">
+        <button id="easy-btn" class="easy-btn center">EASY</button>
+        <button id="medium-btn" class="medium-btn center">MEDIUM</button>
+        <button id="hard-btn" class="hard-btn center">HARD</button>
+      </div>
+      <p id="notification" role="alert"></p>
       <div class="container" aria-label="Grid board container">
         <div data-row="1" data-col="1">
           <input type="text" pattern="[1-9]" maxlength="1" name="input" />
@@ -554,20 +515,8 @@
         </div>
       </div>
       <div class="bottom-btn" aria-label="Check and reset buttons">
-        <button
-          id="check-btn"
-          class="check-btn center"
-          aria-label="Check button"
-        >
-          CHECK
-        </button>
-        <button
-          id="reset-btn"
-          class="reset-btn center"
-          aria-label="Reset button"
-        >
-          RESET
-        </button>
+        <button id="check-btn" class="check-btn center">CHECK</button>
+        <button id="reset-btn" class="reset-btn center">RESET</button>
       </div>
     </main>
     <footer class="center">

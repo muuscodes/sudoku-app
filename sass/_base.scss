@@ -1,0 +1,71 @@
+/* || RESET */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+/* || UTILITY CLASSES */
+.center {
+  text-align: center;
+}
+
+/* || GENERAL STYLES */
+
+html {
+  font-size: $fontSize;
+  font-family: $fontFamily;
+  background-color: $bodyBackgroundColor;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+header {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin: $standardMargin;
+  padding: $paddingTopBottom $paddingSide;
+  font-size: 4rem;
+  color: $headerColor;
+}
+
+/* nav button {
+  display: block;
+  float: right;
+  padding: 5px;
+} */
+
+h4 {
+  text-align: center;
+  color: $headerColor;
+}
+
+main {
+  justify-content: center;
+  width: 100%;
+}
+
+footer {
+  color: $footerColor;
+  position: sticky;
+  bottom: 0;
+  height: $standardHeight;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin-top: $standardMargin;
+}
