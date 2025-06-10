@@ -1,5 +1,4 @@
 .container {
-  max-width: calc(30vw + 4px);
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, 1fr);
@@ -17,13 +16,9 @@
   background-color: $lightBoardColor;
   border: 1px solid black;
   border-radius: 3px;
-  height: $widthBoardTile;
-  width: $widthBoardTile;
   text-align: center;
-  font-size: calc(($widthBoardTile) / 2);
   justify-content: center;
   transition: border 0.5s;
-  min-width: calc((30vw / 9));
 }
 
 input {

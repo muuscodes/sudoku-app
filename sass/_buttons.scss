@@ -9,7 +9,6 @@
 .easy-btn,
 .medium-btn,
 .hard-btn {
-  font-size: 1rem;
   padding: 0.2rem;
   display: inline-block;
   color: $difficultyButtonColor;
@@ -38,14 +37,15 @@
 
 .bottom-btn {
   display: flex;
-  width: 40%;
-  margin: 30px auto;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
+  margin: 15px auto;
+  width: 31%;
+  justify-content: center;
+  align-content: space-evenly;
 }
 
 .check-btn,
-.reset-btn {
+.reset-btn,
+.autocheck-btn {
   padding: 0.5rem;
   display: inline-block;
   margin: $standardMargin;
@@ -57,6 +57,7 @@
 }
 
 .check-btn:hover,
-.reset-btn:hover {
+.reset-btn:hover,
+.autocheck-btn:hover {
   background-color: $bottomButtonHover;
 }

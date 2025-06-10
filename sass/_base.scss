@@ -59,26 +59,117 @@ footer {
   text-align: center;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 3000px) {
   .container {
-    max-width: calc(50px * 9 + 4px);
+    max-width: calc(30vw + 4px);
   }
 
   .container div {
-    min-width: 50px;
-    min-height: 50px;
-    font-size: 1.5rem;
+    width: (30vw / 9);
+    height: (30vw / 9);
+    font-size: (30vw / 9)/2;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    min-width: calc(45vw + 4px);
+    min-height: calc(45vw + 4px);
+  }
+
+  .container div {
+    min-width: (45vw / 9);
+    min-height: (45vw / 9);
+    font-size: (45vw / 9) / 2;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    min-width: calc(48vw + 4px);
+  }
+
+  .container div {
+    min-width: (48vw / 9);
+    min-height: (48vw / 9);
+    font-size: (48vw / 9) / 2;
+  }
+
+  .btn {
+    font-size: 0.6rem;
+    padding: 0.2rem;
+    display: inline-block;
+    margin: $standardMargin;
+    border: $borders;
+    border-radius: 5px;
+    box-shadow: $boxShadowBtn;
+    background-color: $bottomButtonBackgroundColor;
+    font-weight: bold;
+  }
+
+  .check-btn:hover,
+  .reset-btn:hover,
+  .autocheck-btn:hover {
+    background-color: $bottomButtonBackgroundColor;
   }
 }
 
 @media screen and (max-width: 480px) {
   .container {
-    max-width: calc(33px * 9 + 4px);
+    max-width: calc(50vw + 4px);
   }
 
   .container div {
-    min-width: 33px;
-    min-height: 33px;
-    font-size: 1rem;
+    min-width: (50vw / 9);
+    min-height: (50vw / 9);
+    font-size: (50vw / 9) / 2;
+  }
+
+  .btn {
+    font-size: 0.5rem;
+    padding: 0.1rem;
+    display: inline-block;
+    margin: $standardMargin;
+    border: $borders;
+    border-radius: 5px;
+    box-shadow: $boxShadowBtn;
+    background-color: $bottomButtonBackgroundColor;
+    font-weight: bold;
+  }
+
+  .check-btn:hover,
+  .reset-btn:hover,
+  .autocheck-btn:hover {
+    background-color: $bottomButtonBackgroundColor;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    max-width: calc(52vw + 4px);
+  }
+
+  .container div {
+    min-width: (52vw / 9);
+    min-height: (52vw / 9);
+    font-size: (52vw / 9) / 2;
+  }
+
+  .btn {
+    font-size: 0.5rem;
+    padding: 0.1rem;
+    display: inline-block;
+    margin: $standardMargin;
+    border: $borders;
+    border-radius: 5px;
+    box-shadow: $boxShadowBtn;
+    background-color: $bottomButtonBackgroundColor;
+    font-weight: bold;
+  }
+
+  .check-btn:hover,
+  .reset-btn:hover,
+  .autocheck-btn:hover {
+    background-color: $bottomButtonBackgroundColor;
   }
 }

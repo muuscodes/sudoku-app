@@ -7,6 +7,7 @@ let invalidInput = 0;
 let timeoutMessage;
 let timeoutAutoCheck;
 let notification = "";
+let isAutocheckOn = false;
 
 const easyArray = [
   [null, null, 3, null, null, 4, 5, null, 2],
@@ -81,6 +82,7 @@ const hardBtn = document.getElementById("hard-btn");
 const boxes = document.querySelectorAll("[data-row][data-col]");
 const notificationEl = document.getElementById("notification");
 const checkBtn = document.getElementById("check-btn");
+const autocheckBtn = document.getElementById("autocheck-btn");
 const resetBtn = document.getElementById("reset-btn");
 const inputContainer = document.querySelector(".container");
 const difficultyBtnColor = "rgba(186, 130, 70)";
@@ -104,6 +106,7 @@ mediumBtn.addEventListener("click", function () {
   easyBtn.style.background = "";
   mediumBtn.style.background = difficultyBtnColor;
   hardBtn.style.background = "";
+  solutionArray = mediumSolution;
   initializeGameBoard(mediumArray);
 });
 
@@ -145,6 +148,20 @@ checkBtn.addEventListener("click", function () {
   }
 });
 
+autocheckBtn.addEventListener("click", function () {
+  if (!isAutocheckOn) {
+    autocheckBtn.style.background = "rgba(23, 104, 175, 0.708)";
+    autocheckGridHighlight();
+  } else {
+    autocheckBtn.style.background = "";
+    boxes.forEach((i) => {
+      const inputEl = i.querySelector("input");
+      inputEl.style.color = "";
+    });
+  }
+  isAutocheckOn = !isAutocheckOn;
+});
+
 resetBtn.addEventListener("click", function () {
   switch (difficulty) {
     case "easy":
@@ -160,6 +177,7 @@ resetBtn.addEventListener("click", function () {
 });
 
 inputContainer.addEventListener("input", handleInput);
+inputContainer.addEventListener("focusout", handleFocusout);
 
 /* || FUNCTIONS */
 
@@ -238,9 +256,21 @@ function handleInput(event) {
       currentBoard[row][col] = null;
       invalidInput += 1;
     } else {
-      autoCheck(row, col, numValue);
+      if (isAutocheckOn) {
+        autoCheck(row, col, numValue);
+      }
       currentBoard[row][col] = numValue;
     }
+  }
+}
+
+function handleFocusout(event) {
+  if (isAutocheckOn) {
+    boxes.forEach((i) => {
+      const inputEl = i.querySelector("input");
+      inputEl.style.color = "";
+    });
+    autocheckGridHighlight();
   }
 }
 
@@ -503,36 +533,77 @@ function rowValueHighlight(row, col) {
   const indexOfValue = row * 9 + col;
   const inputEl = boxes[indexOfValue].querySelector("input");
 
-  inputEl.style.color = "red";
-  boxes[indexOfValue].style.border = "3px solid red";
-  setTimeout(() => {
-    inputEl.style.color = "";
-    boxes[indexOfValue].style.border = "";
-  }, 1000);
+  if (inputEl.style.color == "red") {
+    boxes[indexOfValue].style.border = "3px solid red";
+    setTimeout(() => {
+      boxes[indexOfValue].style.border = "";
+    }, 1000);
+  } else {
+    inputEl.style.color = "red";
+    boxes[indexOfValue].style.border = "3px solid red";
+    setTimeout(() => {
+      inputEl.style.color = "";
+      boxes[indexOfValue].style.border = "";
+    }, 1000);
+  }
 }
 
 function colValueHighlight(row, col) {
   const indexOfValue = row * 9 + col;
   const inputEl = boxes[indexOfValue].querySelector("input");
 
-  inputEl.style.color = "red";
-  boxes[indexOfValue].style.border = "3px solid red";
-  setTimeout(() => {
-    inputEl.style.color = "";
-    boxes[indexOfValue].style.border = "";
-  }, 1000);
+  if (inputEl.style.color == "red") {
+    boxes[indexOfValue].style.border = "3px solid red";
+    setTimeout(() => {
+      boxes[indexOfValue].style.border = "";
+    }, 1000);
+  } else {
+    inputEl.style.color = "red";
+    boxes[indexOfValue].style.border = "3px solid red";
+    setTimeout(() => {
+      inputEl.style.color = "";
+      boxes[indexOfValue].style.border = "";
+    }, 1000);
+  }
 }
 
 function boxValueHighlight(row, col) {
   const indexOfValue = row * 9 + col;
   const inputEl = boxes[indexOfValue].querySelector("input");
 
-  inputEl.style.color = "red";
-  boxes[indexOfValue].style.border = "3px solid red";
-  setTimeout(() => {
-    inputEl.style.color = "";
-    boxes[indexOfValue].style.border = "";
-  }, 1000);
+  if (inputEl.style.color == "red") {
+    boxes[indexOfValue].style.border = "3px solid red";
+    setTimeout(() => {
+      boxes[indexOfValue].style.border = "";
+    }, 1000);
+  } else {
+    inputEl.style.color = "red";
+    boxes[indexOfValue].style.border = "3px solid red";
+    setTimeout(() => {
+      inputEl.style.color = "";
+      boxes[indexOfValue].style.border = "";
+    }, 1000);
+  }
+}
+
+function autocheckGridHighlight() {
+  const newBoard = currentBoard.map((row) => row.slice());
+  let errorArray = [];
+
+  // Loop through current board to find errors
+  for (let i = 0; i < newBoard.length; i++) {
+    for (let j = 0; j < newBoard[i].length; j++) {
+      if (newBoard[i][j] !== solutionArray[i][j] && newBoard[i][j] != null) {
+        errorArray.push([i, j]);
+      }
+    }
+  }
+
+  errorArray.forEach((element) => {
+    const indexOfValue = element[0] * 9 + element[1];
+    const inputEl = boxes[indexOfValue].querySelector("input");
+    inputEl.style.color = "red";
+  });
 }
 
 /* INITIALIZE GAME */
