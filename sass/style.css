@@ -225,7 +225,7 @@ input {
   transition: font-size 0.5s;
 }
 
-#evenInput {
+.evenInput {
   background-color: #cfd6dc;
 }
 

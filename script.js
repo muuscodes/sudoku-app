@@ -198,17 +198,18 @@ async function generateSudokuArray(difficulty) {
         array: true,
       }),
     });
+    console.log(response);
     if (response.status == 200) {
       console.log(response);
 
       let arr = await response.json();
       return formatArray(arr);
     } else {
-      throw Error(err);
+      const errorMessage = `Error: ${response.status} - ${response.statusText}`;
+      throw new Error(errorMessage);
     }
   } catch (err) {
-    notification = `Board not loading, please refresh the 
-    page and try again`;
+    notification = `Board not loading, please refresh the page and try again. Error: ${err.message}`;
     showMessage(notification, false);
   }
 }
@@ -220,9 +221,14 @@ const formatArray = (array) => {
 };
 
 function initializeGameBoard(array) {
+  autocheckBtn.style.background = "";
+  if (isAutocheckOn) {
+    isAutocheckOn = false;
+  }
   currentBoard = array.map((row) => row.slice());
   boxes.forEach((box) => {
     let inputEl = box.querySelector("input");
+    inputEl.style.color = "";
     const r = parseInt(box.dataset.row) - 1;
     const c = parseInt(box.dataset.col) - 1;
 
