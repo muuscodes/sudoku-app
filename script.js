@@ -95,9 +95,8 @@ easyBtn.addEventListener("click", function () {
   easyBtn.style.background = difficultyBtnColor;
   mediumBtn.style.background = "";
   hardBtn.style.background = "";
-  let boardArray = generateSudokuArray(difficulty)[0];
-  let solutionArray = generateSudokuArray(difficulty)[1];
-  initializeGameBoard(boardArray);
+  solutionArray = easySolution;
+  initializeGameBoard(easyArray);
 });
 
 mediumBtn.addEventListener("click", function () {
@@ -186,39 +185,6 @@ function startGame() {
   easyBtn.style.background = difficultyBtnColor;
   initializeGameBoard(easyArray);
 }
-
-async function generateSudokuArray(difficulty) {
-  try {
-    const response = await fetch("https://youdosudoku.com/api/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        difficulty: difficulty,
-        solution: true,
-        array: true,
-      }),
-    });
-    console.log(response);
-    if (response.status == 200) {
-      console.log(response);
-
-      let arr = await response.json();
-      return formatArray(arr);
-    } else {
-      const errorMessage = `Error: ${response.status} - ${response.statusText}`;
-      throw new Error(errorMessage);
-    }
-  } catch (err) {
-    notification = `Board not loading, please refresh the page and try again. Error: ${err.message}`;
-    showMessage(notification, false);
-  }
-}
-
-const formatArray = (array) => {
-  const arr = array.puzzle;
-  const sol = array.solution;
-  return [arr, sol];
-};
 
 function initializeGameBoard(array) {
   autocheckBtn.style.background = "";
