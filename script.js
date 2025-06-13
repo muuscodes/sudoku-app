@@ -115,6 +115,7 @@ hardBtn.addEventListener("click", function () {
   easyBtn.style.background = "";
   mediumBtn.style.background = "";
   hardBtn.style.background = difficultyBtnColor;
+  solutionArray = hardArray;
   initializeGameBoard(hardArray);
 });
 
