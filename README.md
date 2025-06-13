@@ -1,6 +1,6 @@
 # Sudoku Website
 
-Welcome this simple sudoku app! This app was developed entirely offline and allows users to enjoy the classic game of Sudoku. The challenge was to create a sudoku without wifi or service and this was the final product! The website features an auto-check function, providing a seamless experience for both beginners and experienced players.
+Welcome this simple sudoku app! This app was developed entirely offline and allows users to enjoy the classic game of Sudoku. The challenge was to create a sudoku app without wifi or service and this was the final product! The website features an auto-check function, providing a seamless experience for both beginners and experienced players.
 
 ## Features
 
@@ -22,6 +22,7 @@ To get started with the Sudoku website, follow these steps:
 
 - Navigate to the project directory.
 - Open the index.html file in your web browser.
+     - Using the Live Server extension in your code editor is the easiest way
 
 3. **Start Playing:**
 
