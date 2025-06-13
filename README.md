@@ -1,10 +1,10 @@
 # Sudoku Website
 
-Welcome this simple sudoku app! This app was developed entirely offline and allows users to enjoy the classic game of Sudoku. The website features an auto-check function, providing a seamless experience for both beginners and experienced players.
+Welcome this simple sudoku app! This app was developed entirely offline and allows users to enjoy the classic game of Sudoku. The challenge was to create a sudoku without wifi or service and this was the final product! The website features an auto-check function, providing a seamless experience for both beginners and experienced players.
 
 ## Features
 
-- **Offline Access**: Play Sudoku without needing an internet connection.
+- **Auto-check**: Play Sudoku with an auto-check to see if your guesses are correct.
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation.
 
 ## Getting Started
