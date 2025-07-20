@@ -120,6 +120,7 @@ footer {
   .reset-btn:hover,
   .autocheck-btn:hover {
     background-color: burlywood;
+    cursor: pointer;
   }
 }
 
@@ -293,6 +294,7 @@ div[data-col="7"] {
 .medium-btn:hover,
 .hard-btn:hover {
   background-color: rgba(186, 130, 27, 0.551);
+  cursor: pointer;
 }
 
 #notification {
@@ -338,5 +340,6 @@ div[data-col="7"] {
 .reset-btn:hover,
 .autocheck-btn:hover {
   background-color: rgba(175, 102, 7, 0.675);
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

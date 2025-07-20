@@ -24,6 +24,7 @@
 .medium-btn:hover,
 .hard-btn:hover {
   background-color: $difficultyButtonHover;
+  cursor: pointer;
 }
 
 #notification {
@@ -60,4 +61,5 @@
 .reset-btn:hover,
 .autocheck-btn:hover {
   background-color: $bottomButtonHover;
+  cursor: pointer;
 }
